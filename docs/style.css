@@ -1,0 +1,8 @@
+a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    transition: 0.1s font-weight;
+}
+a:hover{
+    font-weight: bold;
+}
