@@ -8,15 +8,15 @@ const newQuoteBtn = document.getElementById('new-quote');
 
 //Quote API Call
 async function getQuote() {
-    const proxyURL = 'https://fullydeepak.github.io/vannila-js-projects/Quote-Generator/';
+    const proxyURL = 'https://corsproxy.io/?';
     const apiURL = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
     try {
-      const response = await fetch(apiURL);
+      const response = await fetch(proxyURL + apiURL);
       const data = await response.json();
       console.log(data);
       //If didn't fetch any author name
       if (data.quoteAuthor === ''){
-        authorText.innerText = 'Ashneer Grover';
+        authorText.innerText = 'Unknown';
       }
       else{
         authorText.innerText = data.quoteAuthor;
