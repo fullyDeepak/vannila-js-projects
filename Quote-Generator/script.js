@@ -50,7 +50,7 @@ twitterBtn.addEventListener('click', tweetQuote);
 function whatsappQuote(){
     const quote = quoteText.innerText;
     const author = authorText.innerText;
-    const whatsappURl = `whatsapp://send?text=${quote} - ${author}`;
+    const whatsappURl = `https://wa.me/?text=${quote} - ${author}`;
     window.open(whatsappURl, '_blank');
 }
 
