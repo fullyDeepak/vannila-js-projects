@@ -11,7 +11,7 @@ async function getQuote() {
     const proxyURL = 'https://fullydeepak.github.io/vannila-js-projects/Quote-Generator/';
     const apiURL = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
     try {
-      const response = await fetch(proxyURL + apiURL);
+      const response = await fetch(apiURL);
       const data = await response.json();
       console.log(data);
       //If didn't fetch any author name
