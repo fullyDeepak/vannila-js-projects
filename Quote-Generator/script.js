@@ -52,11 +52,20 @@ async function getQuote() {
 
 
 //copy button event listener
+// copyBtn.addEventListener('click', () => {
+//   // let copyToClipboard = 
+//   // navigator.clipboard.writeText(`${quoteText.innerText} - ${authorText.innerText}`);
+//   navigator.clipboard.writeText(`Hemlo`);
+//   navigator.vibrate(18);
+// })
+
 copyBtn.addEventListener('click', () => {
-  // let copyToClipboard = 
-  navigator.clipboard.writeText(`${quoteText.innerText} - ${authorText.innerText}`);
-  navigator.vibrate(18);
-})
+  let text = quoteText.textContent;
+  let author = authorText.textContent;
+  navigator.clipboard.writeText(`${text} ${author}`);
+  alert(`Copied Quote by ${author}.`);
+});
+
 
 //twitter button
 newQuoteBtn.addEventListener("click", getQuote);
