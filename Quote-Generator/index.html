@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Quote Generator</title>
   </head>
   <body>
@@ -21,12 +22,39 @@
         <span id="author"></span>
       </div>
       <div class="button-container">
-        <button class="twitter-button" id="twitter" title="Tweet This!">
-          <i class="fab fa-twitter"></i>
-        </button>
-        <button class="whatsapp-button" id="whatsapp" title="Send to WhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </button>
+        <div class="share-div">
+          <button class="share-button" id="share-button" title="Share">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+          <dialog id="modal">
+            <div class="share-div">
+                <button class="copy-button" id="copy-button" title="Copy This!">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+                <button class="twitter-button" id="twitter" title="Tweet This!">
+                  <i class="fab fa-twitter"></i>
+                </button>
+              <button class="facebook-button" id="facebook" title="Share to Facebook">
+                <i class="fab fa-facebook"></i>
+              </button>
+              <button
+                class="whatsapp-button"
+                id="whatsapp"
+                title="Send to WhatsApp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </button>
+              <button
+                class="more-share-button"
+                id="more-share"
+                title="Share..."
+              >
+              <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+          </dialog>
+        </div>
+        <!-- <button id="translate"><img src="translate.png" class="translate-image"></button> -->
         <button id="new-quote">New Quote</button>
       </div>
     </div>

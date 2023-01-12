@@ -5,6 +5,11 @@ const twitterBtn = document.getElementById("twitter");
 const whatsappBtn = document.getElementById("whatsapp");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
+const shareBtn = document.getElementById("share-button");
+const modal = document.getElementById("modal");
+const copyBtn = document.getElementById("copy-button");
+const fbBtn = document.getElementById("facebook");
+const moreShare = document.getElementById("more-share");
 
 function showLoadingSpinner() {
   loader.style.display = "block";
@@ -45,28 +50,56 @@ async function getQuote() {
   } catch (error) {}
 }
 
-//twitter button
-function tweetQuote() {
-  const quote = quoteText.innerText;
-  const author = authorText.innerText;
-  const twitterURl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
-  window.open(twitterURl, "_blank");
-}
 
-//twitter button event listener
+//copy button event listener
+copyBtn.addEventListener('click', () => {
+  // let copyToClipboard = 
+  navigator.clipboard.writeText(`${quoteText.innerText} - ${authorText.innerText}`);
+  navigator.vibrate(18);
+})
+
+//twitter button
 newQuoteBtn.addEventListener("click", getQuote);
-twitterBtn.addEventListener("click", tweetQuote);
+twitterBtn.addEventListener("click", () => {
+  const twitterURl = `https://twitter.com/intent/tweet?text=${quoteText.innerText} - ${authorText.innerText}`;
+  window.open(twitterURl, "_blank");
+});
+
+
+//fb button
+fbBtn.addEventListener('click', () => {
+  const fbURL = `https://www.facebook.com/share.php?u=${window.location.href}`;
+  window.open(fbURL, "_blank");
+})
 
 //whatsapp button
-function whatsappQuote() {
-  const quote = quoteText.innerText;
-  const author = authorText.innerText;
-  const whatsappURl = `https://wa.me/?text=${quote} - ${author}`;
+whatsappBtn.addEventListener("click", () => {
+  const whatsappURl = `https://wa.me/?text=${quoteText.innerText} - *${authorText.innerText}*`;
   window.open(whatsappURl, "_blank");
-}
+});
 
-//whatsapp button event listener
-whatsappBtn.addEventListener("click", whatsappQuote);
+
+//more share
+moreShare.addEventListener('click', () => {
+  let text = quoteText.innerText + authorText.innerText;
+  if (navigator.share){
+    navigator.share({
+      text:text
+    })
+  }else{
+    alert('Not supported on Your device.')
+  }
+})
+
+//show share modal
+shareBtn.addEventListener('click', () => {
+  modal.showModal();
+})
+
+//hide share modal
+modal.addEventListener('click', () => {
+  modal.close();
+})
 
 //on page load
 getQuote();
