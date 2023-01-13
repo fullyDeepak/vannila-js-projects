@@ -54,20 +54,28 @@ async function getQuote() {
     quoteText.innerText = data.quoteText;
     quoteInEng = data.quoteText;
     removeLoadingSpinner();
+    window.navigator.vibrate(30);
     throw new Error("Error occurred!");
   } catch (error) {}
 }
 
-//using clipboard.js library for copying
-copyBtn.addEventListener("click", () => {
-  window.navigator.vibrate(30);
-  const textCopied = ClipboardJS.copy(
-    quoteText.innerText + " - " + authorText.innerText
-  );
-});
+//copy to Clipboard function
+async function copyToClipboard() {
+  try {
+    await navigator.clipboard.writeText(
+      quoteText.innerText + " - " + authorText.innerText
+    );
+    window.navigator.vibrate(30);
+  } catch (err) {}
+}
+
+//copy button event listener
+copyBtn.addEventListener("click", copyToClipboard);
+
+//new quote button
+newQuoteBtn.addEventListener("click", getQuote);
 
 //twitter button
-newQuoteBtn.addEventListener("click", getQuote);
 twitterBtn.addEventListener("click", () => {
   window.navigator.vibrate(30);
   const twitterURl = `https://twitter.com/intent/tweet?text=${quoteText.innerText} - ${authorText.innerText}`;
@@ -91,7 +99,7 @@ whatsappBtn.addEventListener("click", () => {
 //more share
 moreShare.addEventListener("click", () => {
   window.navigator.vibrate(30);
-  let text = quoteText.innerText + authorText.innerText;
+  let text = quoteText.innerText + " - " + authorText.innerText;
   if (navigator.share) {
     navigator.share({
       text: text,

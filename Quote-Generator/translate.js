@@ -49,14 +49,15 @@ const regEx = /^[a-zA-Z]+$/;
 const tempQuote = quoteText.innerText;
 
 //translator button
-translateBtn.addEventListener('click', () => {
+translateBtn.addEventListener("click", () => {
+  window.navigator.vibrate(30);
   if (quoteText.innerText[0].match(regEx)) {
-    _translate.translateText(quoteText.innerText).then(function (translatedData) {
-      quoteText.innerText = translatedData.text;
-    });
-  }else{
+    _translate
+      .translateText(quoteText.innerText)
+      .then(function (translatedData) {
+        quoteText.innerText = translatedData.text;
+      });
+  } else {
     quoteText.innerText = quoteInEng;
   }
 });
-
-
