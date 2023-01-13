@@ -17,7 +17,7 @@ function showLoadingSpinner() {
   quoteContainer.hidden = true;
   //fix for infinite loading
   setInterval(() => {
-    if(quoteText.innerText == ''){
+    if (quoteText.innerText == "") {
       location.reload();
     }
   }, 4000);
@@ -58,59 +58,59 @@ async function getQuote() {
   } catch (error) {}
 }
 
-
-
-copyBtn.addEventListener('click', () => {
-  navigator.vibrate(18);
-  let text = quoteText.textContent;
-  let author = authorText.textContent;
-  navigator.clipboard.writeText(`${text} - ${author}`);
-  alert(`Copied Quote by ${author}.`);
+//using clipboard.js library for copying
+copyBtn.addEventListener("click", () => {
+  window.navigator.vibrate(30);
+  const textCopied = ClipboardJS.copy(
+    quoteText.innerText + " - " + authorText.innerText
+  );
 });
-
 
 //twitter button
 newQuoteBtn.addEventListener("click", getQuote);
 twitterBtn.addEventListener("click", () => {
+  window.navigator.vibrate(30);
   const twitterURl = `https://twitter.com/intent/tweet?text=${quoteText.innerText} - ${authorText.innerText}`;
   window.open(twitterURl, "_blank");
 });
 
-
 //fb button
-fbBtn.addEventListener('click', () => {
+fbBtn.addEventListener("click", () => {
+  window.navigator.vibrate(30);
   const fbURL = `https://www.facebook.com/share.php?u=${window.location.href}`;
   window.open(fbURL, "_blank");
-})
+});
 
 //whatsapp button
 whatsappBtn.addEventListener("click", () => {
+  window.navigator.vibrate(30);
   const whatsappURl = `https://wa.me/?text=${quoteText.innerText} - *${authorText.innerText}*`;
   window.open(whatsappURl, "_blank");
 });
 
-
 //more share
-moreShare.addEventListener('click', () => {
+moreShare.addEventListener("click", () => {
+  window.navigator.vibrate(30);
   let text = quoteText.innerText + authorText.innerText;
-  if (navigator.share){
+  if (navigator.share) {
     navigator.share({
-      text:text
-    })
-  }else{
-    alert('Not supported on Your device.')
+      text: text,
+    });
+  } else {
+    alert("Not supported on Your device.");
   }
-})
+});
 
 //show share modal
-shareBtn.addEventListener('click', () => {
+shareBtn.addEventListener("click", () => {
+  window.navigator.vibrate(30);
   modal.showModal();
-})
+});
 
 //hide share modal
-modal.addEventListener('click', () => {
+modal.addEventListener("click", () => {
   modal.close();
-})
+});
 
 //on page load
 getQuote();
