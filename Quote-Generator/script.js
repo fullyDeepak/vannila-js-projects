@@ -10,6 +10,7 @@ const modal = document.getElementById("modal");
 const copyBtn = document.getElementById("copy-button");
 const fbBtn = document.getElementById("facebook");
 const moreShare = document.getElementById("more-share");
+let quoteInEng = undefined;
 
 function showLoadingSpinner() {
   loader.style.display = "block";
@@ -45,24 +46,19 @@ async function getQuote() {
       quoteText.classList.remove("long-quote");
     }
     quoteText.innerText = data.quoteText;
+    quoteInEng = data.quoteText;
     removeLoadingSpinner();
     throw new Error("Error occurred!");
   } catch (error) {}
 }
 
 
-//copy button event listener
-// copyBtn.addEventListener('click', () => {
-//   // let copyToClipboard = 
-//   // navigator.clipboard.writeText(`${quoteText.innerText} - ${authorText.innerText}`);
-//   navigator.clipboard.writeText(`Hemlo`);
-//   navigator.vibrate(18);
-// })
 
 copyBtn.addEventListener('click', () => {
   let text = quoteText.textContent;
   let author = authorText.textContent;
-  navigator.clipboard.writeText(`${text} ${author}`);
+  navigator.clipboard.writeText(`${text} - ${author}`);
+  navigator.vibrate(18);
   alert(`Copied Quote by ${author}.`);
 });
 
