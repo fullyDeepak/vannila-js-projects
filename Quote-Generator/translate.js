@@ -53,7 +53,6 @@ translateBtn.addEventListener('click', () => {
   if (quoteText.innerText[0].match(regEx)) {
     _translate.translateText(quoteText.innerText).then(function (translatedData) {
       quoteText.innerText = translatedData.text;
-      console.log(translatedData.text);
     });
   }else{
     quoteText.innerText = quoteInEng;

@@ -15,6 +15,12 @@ let quoteInEng = undefined;
 function showLoadingSpinner() {
   loader.style.display = "block";
   quoteContainer.hidden = true;
+  //fix for infinite loading
+  setInterval(() => {
+    if(quoteText.innerText == ''){
+      location.reload();
+    }
+  }, 4000);
 }
 
 function removeLoadingSpinner() {
@@ -55,10 +61,10 @@ async function getQuote() {
 
 
 copyBtn.addEventListener('click', () => {
+  navigator.vibrate(18);
   let text = quoteText.textContent;
   let author = authorText.textContent;
   navigator.clipboard.writeText(`${text} - ${author}`);
-  navigator.vibrate(18);
   alert(`Copied Quote by ${author}.`);
 });
 
