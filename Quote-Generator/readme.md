@@ -4,7 +4,7 @@ We all need motivation and encouragement from time to time, and if you don't nee
 </br>
 </br>
 
-<h2>⚒️Built with:</h2>
+<h2>👀Live Demo:</h2>
 https://fullydeepak.github.io/vannila-js-projects/Quote-Generator/
 </br>
 </br>
@@ -21,7 +21,7 @@ https://fullydeepak.github.io/vannila-js-projects/Quote-Generator/
 
 <img src="screenshots/Desk-Light.png" >
 
-- Mobile - Light
+- Desktop - Light
 
 <img src="screenshots/Desk-Dark.png">
 
