@@ -9,14 +9,21 @@ https://fullydeepak.github.io/vannila-js-projects/Quote-Generator/
 </br>
 </br>
 <h2>🖼️Screenshot:</h2>
-- Mobile - Light  
-![Screenshot](screenshots/Mobile-Light.jpg)
-- Mobile - Dark  
-![Screenshot](screenshots/Mobile-Dark.jpg)
-- Desktop - Light  
-![Screenshot](screenshots/Desk-Light.png)
-- Desktop - Dark  
-![Screenshot](screenshots/Desk-Dark.png)
+- Mobile - Light
+
+<img src="screenshots/Mobile-Light.jpg" height="750" width="335">
+
+- Mobile - Light
+
+<img src="screenshots/Mobile-Dark.jpg" height="750" width="335">
+
+- Desktop - Light
+
+<img src="screenshots/Desk-Light.png" >
+
+- Mobile - Light
+
+<img src="screenshots/Desk-Dark.png">
 
 </br>
 <h2>⚒️Built with:</h2>
